@@ -1,6 +1,6 @@
 {
   "name": "aeza-net-sdk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A library that allows you to work with the AEZA.NET hosting API",
   "main": "./src/index.js",
   "type": "module",
