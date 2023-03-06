@@ -1,19 +1,15 @@
 import axios from 'axios';
-import IAuth from './interface/IAuth';
 import IQuery from './interface/IQuery';
 
-
 export default class AezaAPI {
-  params: IAuth
+  token: string
   constructor (token: string) {
-    this.params = {
-       token
-    };
+    this.token = token
   }
 
   async services(id?: number) {
     const { data, error } = await this.query({
-      token: this.params.token,
+      token: this.token,
       method: "GET",
       route: `services${id ? "/" + id: ""}`
     })
@@ -34,7 +30,7 @@ export default class AezaAPI {
 
   async charts(id: number) {
     const { data, error } = await this.query({
-      token: this.params.token,
+      token: this.token,
       method: "POST",
       route: `services/${id}/charts`,
     })
@@ -56,7 +52,7 @@ export default class AezaAPI {
 
   async changePassword(id: number, password: string) {
     const { data, error } = await this.query({
-      token: this.params.token,
+      token: this.token,
       method: "POST",
       route: `services/${id}/changePassword`,
       data: { password }
@@ -77,7 +73,7 @@ export default class AezaAPI {
 
   async restart(id: number) {
     const { data, error } = await this.query({
-      token: this.params.token,
+      token: this.token,
       method: "POST",
       route: `services/${id}/ctl`,
       data: {
@@ -102,7 +98,7 @@ export default class AezaAPI {
 
   async delete(id: number) {
     const { data, error } = await this.query({
-      token: this.params.token,
+      token: this.token,
       method: "DELETE",
       route: `services/${id}`,
     })
@@ -134,7 +130,7 @@ export default class AezaAPI {
     }
   ) {
     const { data, error } = await this.query({
-      token: this.params.token,
+      token: this.token,
       method: "POST",
       route: `services/orders`,
       data: {
@@ -168,7 +164,7 @@ export default class AezaAPI {
 
   async getProfile() {
     const { data, error } = await this.query({
-      token: this.params.token,
+      token: this.token,
       method: "GET",
       route: 'accounts?current=1&edit=true&extra=1'
     })
