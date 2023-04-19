@@ -1,8 +1,35 @@
-import IQuery from './interface/IQuery';
-export default class AezaAPI {
-    token: string;
+import query from "./query.js";
+export declare class Service {
+    private token;
+    query: typeof query;
     constructor(token: string);
-    services(id?: number): Promise<{
+    osList(): Promise<{
+        slug: any;
+        message: any;
+        data: any;
+        response?: undefined;
+    } | {
+        response: {
+            items: any;
+        };
+        slug?: undefined;
+        message?: undefined;
+        data?: undefined;
+    }>;
+    products(id?: number): Promise<{
+        slug: any;
+        message: any;
+        data: any;
+        response?: undefined;
+    } | {
+        response: {
+            items: any;
+        };
+        slug?: undefined;
+        message?: undefined;
+        data?: undefined;
+    }>;
+    getServer(id?: number): Promise<{
         slug: any;
         message: any;
         data: any;
@@ -15,7 +42,7 @@ export default class AezaAPI {
         message?: undefined;
         data?: undefined;
     }>;
-    charts(id: number): Promise<{
+    getTask(id: number): Promise<{
         slug: any;
         message: any;
         data: any;
@@ -28,18 +55,7 @@ export default class AezaAPI {
         message?: undefined;
         data?: undefined;
     }>;
-    changePassword(id: number, password: string): Promise<{
-        slug: any;
-        message: any;
-        data: any;
-        response?: undefined;
-    } | {
-        response: any;
-        slug?: undefined;
-        message?: undefined;
-        data?: undefined;
-    }>;
-    restart(id: number): Promise<{
+    getCharts(id: number): Promise<{
         slug: any;
         message: any;
         data: any;
@@ -52,7 +68,26 @@ export default class AezaAPI {
         message?: undefined;
         data?: undefined;
     }>;
-    delete(id: number): Promise<{
+    ctl(params: {
+        id: number;
+        readonly action: "suspend" | "resume" | "reboot";
+    }): Promise<{
+        slug: any;
+        message: any;
+        data: any;
+        response?: undefined;
+    } | {
+        response: {
+            items: any;
+        };
+        slug?: undefined;
+        message?: undefined;
+        data?: undefined;
+    }>;
+    changePassword(params: {
+        id: number;
+        password: string;
+    }): Promise<{
         slug: any;
         message: any;
         data: any;
@@ -63,7 +98,37 @@ export default class AezaAPI {
         message?: undefined;
         data?: undefined;
     }>;
-    order(params: {
+    reinstall(params: {
+        id: number;
+        recipe: number | null;
+        os: number;
+        password: string;
+    }): Promise<{
+        slug: any;
+        message: any;
+        data: any;
+        response?: undefined;
+    } | {
+        response: {
+            status: any;
+            items: any;
+        };
+        slug?: undefined;
+        message?: undefined;
+        data?: undefined;
+    }>;
+    deleteServer(id: number): Promise<{
+        slug: any;
+        message: any;
+        data: any;
+        response?: undefined;
+    } | {
+        response: any;
+        slug?: undefined;
+        message?: undefined;
+        data?: undefined;
+    }>;
+    createServer(params: {
         autoProlong: boolean | false;
         name: string;
         parameters?: {
@@ -89,7 +154,7 @@ export default class AezaAPI {
         message?: undefined;
         data?: undefined;
     }>;
-    getProfile(): Promise<{
+    getOrder(orderId: number): Promise<{
         slug: any;
         message: any;
         data: any;
@@ -97,10 +162,12 @@ export default class AezaAPI {
         response?: undefined;
     } | {
         total: any;
-        response: any;
+        response: {
+            items: any;
+            transaction: any;
+        };
         slug?: undefined;
         message?: undefined;
         data?: undefined;
     }>;
-    query(params: IQuery): Promise<any>;
 }

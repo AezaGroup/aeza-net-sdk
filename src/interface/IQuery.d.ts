@@ -1,6 +1,5 @@
 export default interface IQuery {
-    token: string;
-    method: string;
+    method: 'GET' | 'POST' | 'PUT' | 'DELETE';
     route: string;
     data?: object;
 }

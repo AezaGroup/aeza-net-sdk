@@ -1,10 +1,10 @@
 {
   "name": "aeza-net-sdk",
-  "version": "1.0.3",
+  "version": "1.1.2",
   "description": "A library that allows you to work with the AEZA.NET hosting API",
   "main": "./src/index.js",
   "type": "module",
-  "types": "./lib/index.d.ts",
+  "types": "./src/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --progress --display-error-details --display-entrypoints --display-reasons"
