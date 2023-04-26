@@ -46,7 +46,7 @@ console.log(response) // Displays all os
 #### Product information:
   
 ```javascript
-const { response } = await api.service.products(ID*); // ID it`s not necessary to specify, to receive all servers
+const { response } = await api.service.products(ID); // ID it`s not necessary to specify, to receive all servers
 
 console.log(response) // Product information, with a description of the price and a list of operating systems
 ```
@@ -54,7 +54,7 @@ console.log(response) // Product information, with a description of the price an
 #### Information about your servers:
   
 ```javascript
-const { response } = await api.service.getServer(SERVER_ID*); // SERVER_ID it`s not necessary to specify, to receive all servers
+const { response } = await api.service.getServer(SERVER_ID); // SERVER_ID it`s not necessary to specify, to receive all servers
 
 console.log(response) // Information about your servers
 ```
@@ -62,7 +62,7 @@ console.log(response) // Information about your servers
 #### Server statistics information:
   
 ```javascript
-const { response } = await api.service.getCharts(YOU_SERVER_ID);
+const { response } = await api.service.getCharts(YOUR_SERVER_ID);
 
 console.log(response) // Displays server statistics information
 ```
@@ -92,9 +92,9 @@ console.log(response) // Displays server information
   
 ```javascript
 const { response } = await api.service.reinstall({
-  id: YOU_SERVER_ID,
+  id: YOUR_SERVER_ID,
   recipe: RECIPE,
-  password: YOU_NEW_PASSWORD,
+  password: YOUR_NEW_PASSWORD,
   os: NEW_OS
 });
 
@@ -104,7 +104,7 @@ console.log(response)
 #### Delete Server:
   
 ```javascript
-const { response } = await api.service.deleteServer(YOU_SERVER_ID);
+const { response } = await api.service.deleteServer(YOUR_SERVER_ID);
 
 console.log(response)
 ```
@@ -112,7 +112,7 @@ console.log(response)
 #### Server Management:
   
 ```javascript
-const { response } = await api.service.ctl(YOU_SERVER_ID, ACTION); //Possible actions: resume/suspend/reboot
+const { response } = await api.service.ctl(YOUR_SERVER_ID, ACTION); //Possible actions: resume/suspend/reboot
 
 console.log(response)
 ```
@@ -120,7 +120,7 @@ console.log(response)
 #### Change the password on the server:
   
 ```javascript
-const { response } = await api.service.changePassword(YOU_SERVER_ID, "NEW_PASSWORD");
+const { response } = await api.service.changePassword(YOUR_SERVER_ID, "NEW_PASSWORD");
 
 console.log(response)
 ```
@@ -128,9 +128,9 @@ console.log(response)
 #### Task Info:
   
 ```javascript
-const { response } = await api.service.getTask(YOU_SERVER_ID);
+const { response } = await api.service.getTask(YOUR_SERVER_ID);
 
 console.log(response)
 ```
 
-### To improve the library, you can unsubscribe to [AEZA.NET](https://aeza.net/) hosting support!
+### [AEZA.NET](https://aeza.net/)
